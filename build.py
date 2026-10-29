@@ -15,8 +15,8 @@ UA = [
  ('<a href="#lids">Lids</a>', '<a href="#lids">Кришки</a>'),
  ('<a href="#print">Custom print</a>', '<a href="#print">Друк</a>'),
  ('<a href="#about">About</a>', '<a href="#about">Про нас</a>'),
- ('<a href="#faq">FAQ</a>\n      <a class="lang" href="ua/index.html" hreflang="uk" lang="uk">UA</a>',
-  '<a href="#faq">Питання</a>\n      <a class="lang" href="../index.html" hreflang="en" lang="en">EN</a>'),
+ ('<a href="#faq">FAQ</a>\n      <a class="lang" href="et/index.html" hreflang="et" lang="et">ET</a>\n      <a class="lang" href="ua/index.html" hreflang="uk" lang="uk">UA</a>',
+  '<a href="#faq">Питання</a>\n      <a class="lang" href="../index.html" hreflang="en" lang="en">EN</a>\n      <a class="lang" href="../et/index.html" hreflang="et" lang="et">ET</a>'),
  ('Request a quote</a>', 'Запит ціни</a>'),
  ('<p class="eyebrow">Beverage cans &amp; lids supplier</p>', '<p class="eyebrow">Постачальник банок і кришок для напоїв</p>'),
  ('<h1>Aluminium cans and lids, from one pallet to full production runs</h1>', '<h1>Алюмінієві банки та кришки від однієї палети до великих виробничих серій</h1>'),
@@ -135,7 +135,7 @@ UA = [
  ('aria-label="Footer"', 'aria-label="Посилання"'),
 ]
 
-def translate(src, pairs):
+def translate(src, pairs, ml="ml"):
     out = src
     for a, b in pairs:
         n = out.count(a)
@@ -143,7 +143,8 @@ def translate(src, pairs):
             raise SystemExit("missing: " + a[:80])
         out = out.replace(a, b)
     # format names in the stock table
-    out = re.sub(r'\["(\d+) ml ', r'["\1 мл ', out)
+    if ml != "ml":
+        out = re.sub(r'\["(\d+) ml ', r'["\1 ' + ml + ' ', out)
     return out
 
 PRIVACY_EN = """<title>Privacy Policy · PW Global Trading</title>
@@ -197,10 +198,13 @@ def page(fragment, lang, path, alt=True):
     if alt:
         links += (f'<link rel="alternate" hreflang="en" href="{SITE}/">\n'
                   f'<link rel="alternate" hreflang="uk" href="{SITE}/ua/">\n'
+                  f'<link rel="alternate" hreflang="et" href="{SITE}/et/">\n'
                   f'<link rel="alternate" hreflang="x-default" href="{SITE}/">\n')
     title = re.search(r"<title>(.*?)</title>", head).group(1)
     if title == "PW Global Trading":
-        title = "Beverage Cans & Lids Supplier | PW Global Trading" if lang == "en" else "Банки та кришки для напоїв | PW Global Trading"
+        title = {"en": "Beverage Cans & Lids Supplier | PW Global Trading",
+                 "uk": "Банки та кришки для напоїв | PW Global Trading",
+                 "et": "Joogipurgid ja kaaned | PW Global Trading"}[lang]
         head = head.replace("<title>PW Global Trading</title>", f"<title>{title}</title>")
     desc = re.search(r'<meta name="description" content="(.*?)">', head).group(1)
     og = (f'<meta property="og:type" content="website">\n<meta property="og:title" content="{title}">\n'
@@ -214,16 +218,22 @@ def main():
     if os.path.exists(DIST):
         shutil.rmtree(DIST)
     os.makedirs(os.path.join(DIST, "ua"))
+    os.makedirs(os.path.join(DIST, "et"))
     style = SRC[SRC.index("<style>"):SRC.index("</style>") + 8]
-    ua = translate(SRC, UA)
+    ua = translate(SRC, UA, ml="мл")
+    from lang_et import ET_VALUES
+    if len(ET_VALUES) != len(UA):
+        raise SystemExit(f"ET has {len(ET_VALUES)} strings, expected {len(UA)}")
+    et = translate(SRC, [(k, v) for (k, _), v in zip(UA, ET_VALUES)])
     files = {
         "index.html": page(SRC, "en", "/"),
         "ua/index.html": page(ua, "uk", "/ua/"),
+        "et/index.html": page(et, "et", "/et/"),
         "privacy.html": page(PRIVACY_EN.format(style=style + LEGAL_CSS), "en", "/privacy.html", alt=False),
         "_redirects": "/faq            /#faq          301\n/store-policy   /privacy.html  301\n/home           /              301\n",
         "robots.txt": f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n",
         "sitemap.xml": ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-                        + "".join(f"  <url><loc>{SITE}{p}</loc></url>\n" for p in ["/", "/ua/", "/privacy.html"])
+                        + "".join(f"  <url><loc>{SITE}{p}</loc></url>\n" for p in ["/", "/ua/", "/et/", "/privacy.html"])
                         + "</urlset>\n"),
     }
     for name, content in files.items():
