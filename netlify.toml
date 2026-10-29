@@ -1,0 +1,9 @@
+# Static site. Edit src/en.html (and translations in build.py), run `python3 build.py`, commit dist/.
+[build]
+  publish = "dist"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
