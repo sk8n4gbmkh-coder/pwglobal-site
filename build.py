@@ -230,7 +230,7 @@ def main():
         "ua/index.html": page(ua, "uk", "/ua/"),
         "et/index.html": page(et, "et", "/et/"),
         "privacy.html": page(PRIVACY_EN.format(style=style + LEGAL_CSS), "en", "/privacy.html", alt=False),
-        "_redirects": "/faq            /#faq          301\n/store-policy   /privacy.html  301\n/home           /              301\n",
+        "_redirects": "https://pwglobaltrading.eu/*      https://pwglobaltrading.com/:splat  301!\nhttp://pwglobaltrading.eu/*       https://pwglobaltrading.com/:splat  301!\nhttps://www.pwglobaltrading.eu/*  https://pwglobaltrading.com/:splat  301!\nhttp://www.pwglobaltrading.eu/*   https://pwglobaltrading.com/:splat  301!\n/faq            /#faq          301\n/store-policy   /privacy.html  301\n/home           /              301\n",
         "robots.txt": f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n",
         "sitemap.xml": ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
                         + "".join(f"  <url><loc>{SITE}{p}</loc></url>\n" for p in ["/", "/ua/", "/et/", "/privacy.html"])
