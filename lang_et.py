@@ -49,7 +49,7 @@ ET_VALUES = [
  '<h3>Kaane ja avamisrõnga märgistus</h3>',
  '<li>Graveeritud kaas</li><li>Lasergraveeritud või reljeefne avamisrõngas</li><li>QR- või sooduskoodiga avamisrõngas</li><li>Perforeeritud avamisrõngas</li>',
  '<p>Avamisrõnga all olevad QR- ja sooduskoodid sobivad hästi lojaalsusprogrammidesse ja kampaaniatesse.</p>',
- 'Plekipaksus 0,218 või 0,222 mm. Saadaval BPA-NI sisekate. Toodetud DPG ja BRC sertifikaadiga tehastes. Värvilised avamisrõngad ja märgistus valmistatakse eritellimusel alates 2 000 000 kaanest tootmispartii kohta ning on lisatasu eest.',
+ 'Värvilised avamisrõngad ja märgistus valmistatakse eritellimusel alates 2 000 000 kaanest tootmispartii kohta ning on lisatasu eest.',
  '<p class="eyebrow">Grupipakend</p><h2>Kahanekile ja kandikud</h2>',
  'Jaemüügivalmis multipakid täidetud purkidele, et teie toode liiguks villimisliinilt otse riiulile.',
  '<small>tk</small></div><h3>Kahanekile</h3><p>Purgid kahanekiles.</p>',
