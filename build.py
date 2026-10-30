@@ -100,7 +100,7 @@ UA = [
  ('<li>Canada <span>CA</span></li>', '<li>Канада <span>CA</span></li>'),
  ('<li>Middle East <span>ME</span></li>', '<li>Близький Схід <span>ME</span></li>'),
  ('<p class="eyebrow">FAQ</p><h2>Ordering and delivery</h2>', '<p class="eyebrow">Питання</p><h2>Замовлення та доставка</h2>'),
- ('<summary>Which countries do you ship to?</summary><p>We ship worldwide, except to Russia and Belarus. Most of our clients are in the EU, the UK, Ukraine, the USA, Canada and the Middle East.</p>',
+ ('<summary>Which countries do you ship to?</summary><p>We ship worldwide, except to Russia and Belarus. Most of our clients are in EU, UK, Ukraine, USA, Canada and the Middle East.</p>',
   '<summary>У які країни ви доставляєте?</summary><p>Доставляємо по всьому світу, крім Росії та Білорусі. Більшість наших клієнтів у ЄС, Великій Британії, Україні, США, Канаді та на Близькому Сході.</p>'),
  ('<summary>What is the minimum order?</summary><p>One full pallet for stock cans. For custom-printed cans the minimum is 350,000 units per design.</p>',
   '<summary>Яке мінімальне замовлення?</summary><p>Одна повна палета для банок зі складу. Для банок з індивідуальним друком мінімум становить 350 000 шт. на один дизайн.</p>'),
