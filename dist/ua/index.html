@@ -441,17 +441,17 @@ footer nav{display:flex;gap:20px}
   const T={silver:"Срібляста",black:"Чорна",blackmatt:"Чорна матова",bwmatt:"Чорно-біла матова",copy:"Копіювати",copied:"Скопійовано",preview:"Це лише попередній перегляд. На сайті запит надійде на canorders@pwglobaltrading.eu.",ml:"мл",loc:"uk-UA"};
   // Stock table
   const cans=[
-    ["200 мл slim","silver","",200,550,17,9350,"1200 × 1100 × 2060"],
-    ["250 мл slim","silver","",200,500,17,8500,"1250 × 1180 × 2430"],
-    ["330 мл sleek","silver","","200 / 202",471,16,7536,"1250 × 1180 × 2491"],
-    ["330 мл standard","silver","",202,360,18,6480,"1250 × 1180 × 2295"],
-    ["330 мл standard","black","",202,360,18,6480,"1250 × 1180 × 2295"],
-    ["440 мл standard","silver","",202,360,14,5040,"1250 × 1180 × 2260"],
-    ["440 мл standard","blackmatt","",202,360,14,5040,"1250 × 1180 × 2260"],
-    ["500 мл standard","silver","",202,360,13,4680,"1250 × 1180 × 2260"],
-    ["500 мл standard","bwmatt","",202,360,13,4680,"1250 × 1180 × 2260"],
-    ["500 мл standard","blackmatt","",202,360,13,4680,"1250 × 1180 × 2260"],
-    ["500 мл standard","blackmatt","BPA-NI",202,360,13,4680,"1250 × 1180 × 2260"]
+    ["200 мл slim","silver","",200,550,17,9350,"1180 × 1250 × 2060"],
+    ["250 мл slim","silver","",200,500,17,8500,"1180 × 1250 × 2430"],
+    ["330 мл sleek","silver","","200 / 202",471,16,7536,"1180 × 1250 × 2491"],
+    ["330 мл standard","silver","",202,360,18,6480,"1180 × 1250 × 2295"],
+    ["330 мл standard","black","",202,360,18,6480,"1180 × 1250 × 2295"],
+    ["440 мл standard","silver","",202,360,14,5040,"1180 × 1250 × 2260"],
+    ["440 мл standard","blackmatt","",202,360,14,5040,"1180 × 1250 × 2260"],
+    ["500 мл standard","silver","",202,360,13,4680,"1180 × 1250 × 2260"],
+    ["500 мл standard","bwmatt","",202,360,13,4680,"1180 × 1250 × 2260"],
+    ["500 мл standard","blackmatt","",202,360,13,4680,"1180 × 1250 × 2260"],
+    ["500 мл standard","blackmatt","BPA-NI",202,360,13,4680,"1180 × 1250 × 2260"]
   ];
   const chip={silver:"silver",black:"black",blackmatt:"black",bwmatt:"bw"};
   const fmt=n=>n.toLocaleString(T.loc);
@@ -459,8 +459,8 @@ footer nav{display:flex;gap:20px}
 
   // Can line-up, roughly to scale (height, diameter in mm)
   const svg=document.getElementById("lineup"), NS="http://www.w3.org/2000/svg";
-  const line=[["200 slim",110,53,0],["250 slim",134,53,0],["330 sleek",146,58,0],["330",115,66,0],["440",147,66,0],["500",168,66,1]];
-  const k=1.55, base=262; let x=14;
+  const line=[["200 slim",110,53,0],["250 slim",134,53,0],["330 sleek",146,58,0],["330",115,66,0],["440",147,66,0],["500",168,66,0]];
+  const k=(520-28-5*12)/line.reduce((s,c)=>s+c[2],0), base=262; let x=14;
   const defs=document.createElementNS(NS,"defs");
   defs.innerHTML=`<linearGradient id="alu" x1="0" x2="1"><stop offset="0" stop-color="var(--alu-3)"/><stop offset=".22" stop-color="var(--alu-1)"/><stop offset=".5" stop-color="var(--alu-2)"/><stop offset=".78" stop-color="var(--alu-1)"/><stop offset="1" stop-color="var(--alu-3)"/></linearGradient><linearGradient id="matt" x1="0" x2="1"><stop offset="0" stop-color="var(--matt-2)"/><stop offset=".35" stop-color="var(--matt-1)"/><stop offset="1" stop-color="var(--matt-2)"/></linearGradient>`;
   svg.appendChild(defs);
