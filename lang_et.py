@@ -22,7 +22,7 @@ ET_VALUES = [
  '<p class="eyebrow">Laopurgid</p><h2>Formaadid meie laos</h2>',
  'Trükita purgid püsivalt laost, müüakse täisalustena. Ühte tarnesse saab kombineerida eri formaate. Allpool on teieni jõudva aluse andmed.',
  '<th>Formaat</th><th>Värv</th><th class="num">Kaas</th><th class="num">Purke kihis</th><th class="num">Kihte</th><th class="num">Purke alusel</th><th class="num">Alus L × P × K, mm</th>',
- 'Laopurgid tarnitakse hõbedase kaane ja hõbedase avamisrõngaga. BPA-NI: sisekate ilma bisfenool A-ta. Muud formaadid ja värvid tellimisel.',
+ 'Kõik meie laopurgid on BPA-NI ja PFAS-vabad vastavalt ELi toiduga kokkupuutuvate pakendite nõuetele, sh PPWR (pakendite ja pakendijäätmete määrus). Laopurgid tarnitakse hõbedase kaane ja hõbedase avamisrõngaga. Muud formaadid ja värvid tellimisel.',
  '<p class="eyebrow">Kaaned</p><h2>Kaaned purkide juurde või eraldi</h2>',
  'Tarnime alumiiniumkaasi koos meie purkidega või eraldi tellimusena teie villimisliinile. Kaante hind arvestatakse purkidest eraldi.',
  '<i class="c-silver"></i>Hõbe</li>',
