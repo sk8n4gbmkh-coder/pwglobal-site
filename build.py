@@ -56,7 +56,7 @@ UA = [
   '<b>Виробництво та доставка</b><span>Термін узгоджуємо для кожного замовлення. Організовуємо доставку на ваш завод.</span>'),
  ('<dt>Printing</dt><dd>Offset</dd>', '<dt>Друк</dt><dd>Офсетний</dd>'),
  ('<dt>Finish</dt><dd>Gloss, matt, deep matt or tactile</dd>', '<dt>Оздоблення</dt><dd>Глянець, мат, глибокий мат або тактильний лак</dd>'),
- ('<dt>Formats</dt><dd>200–500 ml, incl. 355 and 473 ml</dd>', '<dt>Формати</dt><dd>200–500 мл, зокрема 355 і 473 мл</dd>'),
+ ('<dt>Formats</dt><dd>200–500 ml, incl. 355 and 440 ml</dd>', '<dt>Формати</dt><dd>200–500 мл, зокрема 355 і 440 мл</dd>'),
  ('<a href="#packaging">Packaging</a>', '<a href="#packaging">Пакування</a>'),
  ('<h3>Tab colours</h3>', '<h3>Кольори язичка</h3>'),
  ('<i class="c-red"></i>Red</li>', '<i class="c-red"></i>Червоний</li>'),

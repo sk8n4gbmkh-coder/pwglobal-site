@@ -39,7 +39,7 @@ ET_VALUES = [
  '<b>Tootmine ja tarne</b><span>Tarneaeg lepitakse kokku iga tellimuse puhul. Korraldame transpordi teie tehasesse.</span>',
  '<dt>Trükk</dt><dd>Ofset</dd>',
  '<dt>Viimistlus</dt><dd>Läige, matt, sügavmatt või taktiilne lakk</dd>',
- '<dt>Formaadid</dt><dd>200–500 ml, sh 355 ja 473 ml</dd>',
+ '<dt>Formaadid</dt><dd>200–500 ml, sh 355 ja 440 ml</dd>',
  '<a href="#packaging">Pakend</a>',
  '<h3>Avamisrõnga värvid</h3>',
  '<i class="c-red"></i>Punane</li>',
