@@ -1,0 +1,67 @@
+"""Control gate for the site: build dist/ and check that all language versions are consistent.
+
+Run: python3 tests/check_site.py   (exit code 0 = pass)
+"""
+import os
+import re
+import subprocess
+import sys
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DIST = os.path.join(ROOT, "dist")
+PAGES = {"en": "index.html", "uk": "ua/index.html", "et": "et/index.html"}
+errors = []
+
+
+def check(cond, msg):
+    if not cond:
+        errors.append(msg)
+
+
+# Gate 1: build succeeds (build.py itself fails on a missing translation or ET/UA count mismatch)
+r = subprocess.run([sys.executable, os.path.join(ROOT, "build.py")], cwd=ROOT, capture_output=True, text=True)
+check(r.returncode == 0, f"build failed: {r.stdout}{r.stderr}".strip())
+
+if not errors:
+    html = {}
+    for lang, path in PAGES.items():
+        full = os.path.join(DIST, path)
+        check(os.path.exists(full), f"missing page {path}")
+        if os.path.exists(full):
+            html[lang] = open(full, encoding="utf-8").read()
+
+    sections = {}
+    for lang, h in html.items():
+        # Gate 2: correct html lang
+        check(f'<html lang="{lang}">' in h, f"{PAGES[lang]}: wrong <html lang>")
+        # Gate 3: every in-page link points to an existing id (no dead menu links)
+        ids = set(re.findall(r'id="([^"]+)"', h))
+        for target in set(re.findall(r'href="#([^"]+)"', h)):
+            check(target in ids, f"{PAGES[lang]}: link #{target} has no matching section")
+        # Gate 4: quote form still wired to Netlify Forms
+        check('data-netlify="true"' in h and 'name="quote"' in h, f"{PAGES[lang]}: quote form missing Netlify attributes")
+        # Gate 5: language switch links to the other versions
+        others = [l for l in PAGES if l != lang]
+        for o in others:
+            check(f'hreflang="{o}"' in h, f"{PAGES[lang]}: no link to {o} version")
+        sections[lang] = re.findall(r'<section[^>]*id="([^"]+)"', h)
+
+    # Gate 6: all languages have the same sections in the same order
+    if "en" in sections:
+        for lang, s in sections.items():
+            check(s == sections["en"], f"{PAGES[lang]}: sections {s} differ from EN {sections['en']}")
+
+    # Gate 7: every sitemap URL has a built file
+    sm = open(os.path.join(DIST, "sitemap.xml"), encoding="utf-8").read()
+    for loc in re.findall(r"<loc>https://[^/]+(/[^<]*)</loc>", sm):
+        f = loc.lstrip("/") or "index.html"
+        if f.endswith("/"):
+            f += "index.html"
+        check(os.path.exists(os.path.join(DIST, f)), f"sitemap entry {loc} has no file")
+
+if errors:
+    print("FAIL")
+    for e in errors:
+        print(" -", e)
+    sys.exit(1)
+print("PASS: build, 3 languages, links, form, language switch, sections, sitemap")
