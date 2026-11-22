@@ -96,7 +96,7 @@ ET_VALUES = [
  'placeholder="nt 500 ml must matt, 6 alust, 202 CDL hõbedased kaaned"',
  'type="submit">Saada päring</button>',
  '<nav aria-label="Footer"><a href="#faq">KKK</a><a href="../privacy.html">Privaatsuspoliitika</a>',
- 'const T={silver:"Hõbe",black:"Must",blackmatt:"Must matt",bwmatt:"Must/valge matt",copy:"Kopeeri",copied:"Kopeeritud",preview:"Ainult eelvaade. Päris saidil jõuab päring aadressile canorders@pwglobaltrading.eu.",ml:"ml",loc:"et-EE"};',
+ 'const T={silver:"Hõbe",blackmatt:"Must matt",whitematt:"Valge matt",copy:"Kopeeri",copied:"Kopeeritud",preview:"Ainult eelvaade. Päris saidil jõuab päring aadressile canorders@pwglobaltrading.eu.",ml:"ml",loc:"et-EE"};',
  'aria-label="Menüü"',
  'aria-label="Lingid"',
  '<p class="moq"><b>MOQ</b> 2 000 000 kaant tootmispartii kohta</p>',

@@ -53,6 +53,13 @@ if not errors:
         # Gate 5c (negative): old SVG line-up gone, hero has 3 photos
         check('id="lineup"' not in h, f"{PAGES[lang]}: old SVG line-up still present")
         check(len(re.findall(r'<img[^>]+data-cap=', h)) == 3, f"{PAGES[lang]}: hero should have 3 photos")
+        # Gate 5d: stock table = 15 rows (spec 002), every colour key has a label; no old "black/white matt"
+        m = re.search(r"const cans=\[(.*?)\n  \];", h, re.S)
+        rows = re.findall(r'\["[^"]+","([a-z]+)"', m.group(1)) if m else []
+        check(len(rows) == 15, f"{PAGES[lang]}: stock table has {len(rows)} rows, expected 15")
+        for key in set(rows):
+            check(re.search(rf'const T=\{{[^}}]*\b{key}:"', h) is not None, f"{PAGES[lang]}: colour '{key}' has no label in T")
+        check("bwmatt" not in h, f"{PAGES[lang]}: old bwmatt colour still present")
 
     # Gate 6: all languages have the same sections in the same order
     if "en" in sections:

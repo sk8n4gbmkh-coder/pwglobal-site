@@ -113,7 +113,7 @@ tbody tr:hover td{background:var(--accent-soft)}
 .c-silver{background:linear-gradient(135deg,var(--alu-1),var(--alu-2))}
 .c-black{background:var(--matt-2)}
 .c-gold{background:linear-gradient(135deg,#ecd59a,#b18a3b)}
-.c-bw{background:linear-gradient(90deg,var(--matt-2) 50%,#f2f2f0 50%)}.c-red{background:#c8332d}.c-blue{background:#2d55c8}.c-green{background:#3a9a4a}
+.c-white{background:#f2f2f0;box-shadow:inset 0 0 0 1px #c9c5c1}.c-bw{background:linear-gradient(90deg,var(--matt-2) 50%,#f2f2f0 50%)}.c-red{background:#c8332d}.c-blue{background:#2d55c8}.c-green{background:#3a9a4a}
 .extras{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin-top:20px}
 .extras .card h3{font-size:var(--s3)}
 .extras .card .moq{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);color:var(--fg);font-size:var(--s2)}
@@ -440,21 +440,26 @@ footer nav{display:flex;gap:20px}
 
 <script>
 (function(){
-  const T={silver:"Срібляста",black:"Чорна",blackmatt:"Чорна матова",bwmatt:"Чорно-біла матова",copy:"Копіювати",copied:"Скопійовано",preview:"Це лише попередній перегляд. На сайті запит надійде на canorders@pwglobaltrading.eu.",ml:"мл",loc:"uk-UA"};
+  const T={silver:"Срібляста",blackmatt:"Чорна матова",whitematt:"Біла матова",copy:"Копіювати",copied:"Скопійовано",preview:"Це лише попередній перегляд. На сайті запит надійде на canorders@pwglobaltrading.eu.",ml:"мл",loc:"uk-UA"};
   // Stock table
   const cans=[
     ["200 мл slim","silver","",200,550,17,9350,"1180 × 1250 × 2060"],
+    ["200 мл slim","blackmatt","",200,550,17,9350,"1180 × 1250 × 2060"],
     ["250 мл slim","silver","",200,500,17,8500,"1180 × 1250 × 2430"],
+    ["250 мл slim","blackmatt","",200,500,17,8500,"1180 × 1250 × 2430"],
     ["330 мл sleek","silver","","200 / 202",471,16,7536,"1180 × 1250 × 2491"],
+    ["330 мл sleek","blackmatt","","200 / 202",471,16,7536,"1180 × 1250 × 2491"],
+    ["330 мл sleek","whitematt","","200 / 202",471,16,7536,"1180 × 1250 × 2491"],
     ["330 мл standard","silver","",202,360,18,6480,"1180 × 1250 × 2295"],
-    ["330 мл standard","black","",202,360,18,6480,"1180 × 1250 × 2295"],
+    ["330 мл standard","blackmatt","",202,360,18,6480,"1180 × 1250 × 2295"],
+    ["330 мл standard","whitematt","",202,360,18,6480,"1180 × 1250 × 2295"],
     ["440 мл standard","silver","",202,360,14,5040,"1180 × 1250 × 2260"],
     ["440 мл standard","blackmatt","",202,360,14,5040,"1180 × 1250 × 2260"],
     ["500 мл standard","silver","",202,360,13,4680,"1180 × 1250 × 2260"],
-    ["500 мл standard","bwmatt","",202,360,13,4680,"1180 × 1250 × 2260"],
-    ["500 мл standard","blackmatt","",202,360,13,4680,"1180 × 1250 × 2260"]
+    ["500 мл standard","blackmatt","",202,360,13,4680,"1180 × 1250 × 2260"],
+    ["500 мл standard","whitematt","",202,360,13,4680,"1180 × 1250 × 2260"]
   ];
-  const chip={silver:"silver",black:"black",blackmatt:"black",bwmatt:"bw"};
+  const chip={silver:"silver",blackmatt:"black",whitematt:"white"};
   const fmt=n=>n.toLocaleString(T.loc);
   document.getElementById("cans-rows").innerHTML=cans.map(c=>`<tr><td class="fmt">${c[0]}${c[2]?`<span class="tag">${c[2]}</span>`:""}</td><td><span class="chip"><i class="c-${chip[c[1]]}"></i>${T[c[1]]}</span></td><td class="num">${c[3]}</td><td class="num">${fmt(c[4])}</td><td class="num">${c[5]}</td><td class="num">${fmt(c[6])}</td><td class="num">${c[7]}</td></tr>`).join("");
 

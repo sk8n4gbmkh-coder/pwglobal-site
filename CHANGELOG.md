@@ -3,6 +3,7 @@
 Co faktycznie zostało zbudowane, wg dat. Wpisy do 2026-11-14 odtworzone z historii git.
 
 ## 2026-11-22
+- Tabela puszek z magazynu: pełna lista kolorów wg listy od właściciela — 15 wierszy (dodane black matt dla 200/250 slim i 330 sleek, white matt dla 330 sleek/standard i 500 ml; „Black” → „Black matt”; „Black/white matt” rozbite na black matt i white matt). Spec [002](specs/002-kolory-w-tabeli-stocku.md).
 - Hero: rysunek SVG formatów puszek zastąpiony pokazem 3 zdjęć (250 ml slim, 330 ml standard, 500 ml standard; matt silver/white/black), przenikanie co 4,5 s, kropki do wyboru, bez autoodtwarzania przy „ogranicz ruch”. Zdjęcia przycięte (bez polskiego napisu), podpisy i opisy alt w EN/UA/ET. Spec [001](specs/001-zdjecia-puszek-w-hero.md).
 - `build.py` kopiuje `src/img/` do `dist/img/`; test sprawdza, że każdy obraz istnieje i stary SVG zniknął.
 

@@ -11,7 +11,7 @@ Projekt prowadzony wg metodyki Rondo / Context Driven Development (workwithrondo
 
 **Sekcje strony (w kolejności):**
 1. Hero — dostawca puszek i wieczek; pokaz 3 zdjęć puszek (`src/img/`)
-2. `#cans` — puszki z magazynu (tabela formatów, paletyzacja 1180 × 1250)
+2. `#cans` — puszki z magazynu (tabela 15 pozycji: format × kolor silver/black matt/white matt, paletyzacja 1180 × 1250)
 3. `#lids` — wieczka (kolorowe zawleczki i znakowanie od 2 mln szt.)
 4. `#print` — nadruk na puszce (formaty 200–500 ml, wykończenia, efekty)
 5. `#about` — o nas
@@ -35,6 +35,7 @@ Projekt prowadzony wg metodyki Rondo / Context Driven Development (workwithrondo
 |----|-------|--------|
 | [000](specs/000-szablon.md) | Szablon specyfikacji | szablon |
 | [001](specs/001-zdjecia-puszek-w-hero.md) | Zdjęcia puszek w hero zamiast rysunku | wdrożona 2026-11-22 |
+| [002](specs/002-kolory-w-tabeli-stocku.md) | Pełna lista kolorów w tabeli stocku | zamknięta, czeka na publikację |
 
 ## Historia
 
