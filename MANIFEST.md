@@ -22,7 +22,8 @@ Zasady stosowane w każdej specyfikacji i każdej zmianie. Metodyka: Rondo / Con
 - Wszystkie wersje mają te same sekcje w tej samej kolejności; każdy link `#kotwica` musi mieć cel.
 - Formularz kontaktowy zostaje na Netlify Forms (`name="quote"`, honeypot).
 - Bez danych wrażliwych w repo — jest publiczne.
-- Dane produktowe (formaty, palety, MOQ, certyfikaty) tylko z materiałów od właściciela, nie zgadujemy.
+- Dane produktowe (formaty, palety, MOQ, certyfikaty) tylko z materiałów od właściciela, nie zgadujemy. Dane palet — wg tabeli na asaszi.pl.
+- Na stronie nie pokazujemy indeksów produktów dostawców (np. Bagpak SM/20-BLANK0002) ani nazw dostawców/magazynów.
 
 ## Po każdej rundzie zmian
 - Analiza bezpieczeństwa i regresji obecnej i wcześniejszych zmian (formularz, przekierowania, nagłówki, linki, zewnętrzne zasoby).

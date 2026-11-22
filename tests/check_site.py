@@ -60,6 +60,9 @@ if not errors:
         for key in set(rows):
             check(re.search(rf'const T=\{{[^}}]*\b{key}:"', h) is not None, f"{PAGES[lang]}: colour '{key}' has no label in T")
         check("bwmatt" not in h, f"{PAGES[lang]}: old bwmatt colour still present")
+        # Gate 5e (negative): no supplier product codes (Bagpak indexes such as SM/20-BLANK0002) on the site
+        codes = re.findall(r"\b[A-Z]{2}/\d{2}-[A-Z_]+\d{3,}", h) + re.findall(r"Bagpak", h)
+        check(not codes, f"{PAGES[lang]}: supplier product codes found: {codes[:3]}")
 
     # Gate 6: all languages have the same sections in the same order
     if "en" in sections:
