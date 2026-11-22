@@ -10,7 +10,7 @@ Projekt prowadzony wg metodyki Rondo / Context Driven Development (workwithrondo
 **Wersje językowe:** EN `/`, UA `/ua/`, ET `/et/` — ta sama struktura sekcji w każdej. Polityka prywatności tylko EN (`/privacy.html`).
 
 **Sekcje strony (w kolejności):**
-1. Hero — dostawca puszek i wieczek
+1. Hero — dostawca puszek i wieczek; pokaz 3 zdjęć puszek (`src/img/`)
 2. `#cans` — puszki z magazynu (tabela formatów, paletyzacja 1180 × 1250)
 3. `#lids` — wieczka (kolorowe zawleczki i znakowanie od 2 mln szt.)
 4. `#print` — nadruk na puszce (formaty 200–500 ml, wykończenia, efekty)
@@ -21,6 +21,7 @@ Projekt prowadzony wg metodyki Rondo / Context Driven Development (workwithrondo
 
 **Architektura:**
 - `src/en.html` — źródło strony (EN), jedyne miejsce edycji treści i wyglądu
+- `src/img/` — zdjęcia (kopiowane do `dist/img/`, w HTML ścieżki bezwzględne `/img/...`)
 - `build.py` — buduje `dist/`: EN, UA (tłumaczenia w liście `UA`), ET (z `lang_et.py`), polityka prywatności, `_redirects`, `robots.txt`, `sitemap.xml`
 - `lang_et.py` — tłumaczenia ET, wyrównane indeksami z listą `UA`
 - `dist/` — publikowany folder (Netlify `publish = "dist"`, bez komendy build — `dist/` jest commitowany)
@@ -33,6 +34,7 @@ Projekt prowadzony wg metodyki Rondo / Context Driven Development (workwithrondo
 | Nr | Tytuł | Status |
 |----|-------|--------|
 | [000](specs/000-szablon.md) | Szablon specyfikacji | szablon |
+| [001](specs/001-zdjecia-puszek-w-hero.md) | Zdjęcia puszek w hero zamiast rysunku | zamknięta, czeka na publikację |
 
 ## Historia
 

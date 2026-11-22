@@ -13,7 +13,6 @@ ET_VALUES = [
  '<h1>Alumiiniumpurgid ja kaaned ühest alusest kuni suurte tootmispartiideni</h1>',
  'PW Global Trading tarnib trükita ja trükiga joogipurke ning kaasi õlletehastele, joogitootjatele ja lepingulistele villijatele. Laoformaadid väljastame mõne päevaga. Teie disainiga purkide minimaalne kogus on 350 000 tk disaini kohta.',
  '<a class="btn btn-ghost" href="#cans">Vaata laoformaate</a>',
- 'aria-label="Purgiformaadid 200 ml slim kuni 500 ml standard"',
  'aria-label="Põhinäitajad"',
  '<dt>purki tarnime igal aastal</dt><dd>100 mln+</dd>',
  '<dt>aastat joogipakendite valdkonnas</dt>',
@@ -101,4 +100,10 @@ ET_VALUES = [
  'aria-label="Menüü"',
  'aria-label="Lingid"',
  '<p class="moq"><b>MOQ</b> 2 000 000 kaant tootmispartii kohta</p>',
+ 'aria-label="Laopurkide formaadid"',
+ 'aria-label="Vali foto"',
+ 'data-cap="330 ml standard" alt="Kolm 330 ml standard-purki: matt hõbe, valge ja must">',
+ 'data-cap="250 ml slim" alt="Kolm 250 ml slim-purki: matt hõbe, valge ja must">',
+ 'data-cap="500 ml standard" alt="Kolm 500 ml standard-purki: matt hõbe, valge ja must">',
+ '<figcaption id="show-cap" aria-live="polite">330 ml standard</figcaption>',
 ]

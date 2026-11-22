@@ -23,7 +23,6 @@ UA = [
  ('PW Global Trading supplies blank and printed beverage cans and can ends to breweries, drinks producers and co-packers. Stock formats ship within days. Custom-printed cans start at 350,000 units per design.',
   'PW Global Trading постачає банки для напоїв без друку та з друком, а також кришки для пивоварень, виробників напоїв і копакерів. Складські формати відвантажуємо за кілька днів. Банки з вашим дизайном замовляються від 350 000 шт. на один дизайн.'),
  ('<a class="btn btn-ghost" href="#cans">See stock formats</a>', '<a class="btn btn-ghost" href="#cans">Складські формати</a>'),
- ('aria-label="Can formats from 200 ml slim to 500 ml standard"', 'aria-label="Формати банок від 200 мл slim до 500 мл standard"'),
  ('aria-label="Key figures"', 'aria-label="Основні показники"'),
  ('<dt>cans supplied every year</dt><dd>100M+</dd>', '<dt>банок постачаємо щороку</dt><dd>100 млн+</dd>'),
  ('<dt>years in beverage packaging</dt>', '<dt>років у пакуванні для напоїв</dt>'),
@@ -128,6 +127,12 @@ UA = [
  ('aria-label="Main"', 'aria-label="Меню"'),
  ('aria-label="Footer"', 'aria-label="Посилання"'),
  ('<p class="moq"><b>MOQ</b> 2,000,000 lids per production run</p>', '<p class="moq"><b>MOQ</b> 2 000 000 кришок на виробничу партію</p>'),
+ ('aria-label="Stock can formats"', 'aria-label="Формати банок зі складу"'),
+ ('aria-label="Choose photo"', 'aria-label="Вибрати фото"'),
+ ('data-cap="330 ml standard" alt="Three 330 ml standard cans in matt silver, white and black">', 'data-cap="330 мл standard" alt="Три банки 330 мл standard: матові срібляста, біла та чорна">'),
+ ('data-cap="250 ml slim" alt="Three 250 ml slim cans in matt silver, white and black">', 'data-cap="250 мл slim" alt="Три банки 250 мл slim: матові срібляста, біла та чорна">'),
+ ('data-cap="500 ml standard" alt="Three 500 ml standard cans in matt silver, white and black">', 'data-cap="500 мл standard" alt="Три банки 500 мл standard: матові срібляста, біла та чорна">'),
+ ('<figcaption id="show-cap" aria-live="polite">330 ml standard</figcaption>', '<figcaption id="show-cap" aria-live="polite">330 мл standard</figcaption>'),
 ]
 
 def translate(src, pairs, ml="ml"):
@@ -231,6 +236,7 @@ def main():
                         + "".join(f"  <url><loc>{SITE}{p}</loc></url>\n" for p in ["/", "/ua/", "/et/", "/privacy.html"])
                         + "</urlset>\n"),
     }
+    shutil.copytree(os.path.join(ROOT, "src", "img"), os.path.join(DIST, "img"))
     for name, content in files.items():
         with open(os.path.join(DIST, name), "w", encoding="utf-8") as f:
             f.write(content)

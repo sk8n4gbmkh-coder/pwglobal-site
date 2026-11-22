@@ -71,9 +71,16 @@ nav.menu a.lang{font:500 var(--s1)/1 var(--mono);letter-spacing:.06em;border:1px
 .hero h1{font-size:var(--s6);font-weight:800;margin-block:18px 20px}
 .hero p.lead{color:var(--band-muted)}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-block:28px 72px}
-.lineup{display:block;width:100%;height:auto;max-width:100%}
-.lineup text{font:500 11px var(--mono);fill:var(--band-muted)}
-@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:0;padding-block:48px 0}.hero .ctas{margin-bottom:40px}}
+.show{position:relative;margin:0 0 48px;aspect-ratio:4/3;border-radius:4px;overflow:hidden;background:#1a1817;border:1px solid var(--band-line)}
+.show img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
+.show img.on{opacity:1}
+.show figcaption{position:absolute;left:14px;top:14px;font:500 var(--s1)/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--band-fg);background:rgba(15,14,14,.72);padding:8px 10px;border-radius:2px}
+.dots{position:absolute;right:10px;top:8px;display:flex;gap:6px}
+.dots button{width:28px;height:28px;padding:0;border:0;background:none;cursor:pointer;display:grid;place-items:center}
+.dots button::before{content:"";width:9px;height:9px;border-radius:50%;background:rgba(244,241,238,.45);transition:background .3s}
+.dots button[aria-current="true"]::before{background:var(--band-fg)}
+@media (prefers-reduced-motion:reduce){.show img{transition:none}}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:0;padding-block:48px 0}.show{margin-bottom:32px}.hero .ctas{margin-bottom:40px}}
 
 /* figures */
 .figures{background:var(--surface);border-bottom:1px solid var(--line)}
@@ -231,7 +238,13 @@ footer nav{display:flex;gap:20px}
           <a class="btn btn-ghost" href="#cans">See stock formats</a>
         </div>
       </div>
-      <svg class="lineup" id="lineup" viewBox="0 0 520 300" role="img" aria-label="Can formats from 200 ml slim to 500 ml standard"></svg>
+      <figure class="show" id="show" aria-roledescription="carousel" aria-label="Stock can formats">
+        <img class="on" src="/img/cans-330.jpg" width="1120" height="840" fetchpriority="high" data-cap="330 ml standard" alt="Three 330 ml standard cans in matt silver, white and black">
+        <img src="/img/cans-250.jpg" width="1120" height="840" decoding="async" data-cap="250 ml slim" alt="Three 250 ml slim cans in matt silver, white and black">
+        <img src="/img/cans-500.jpg" width="1120" height="840" decoding="async" data-cap="500 ml standard" alt="Three 500 ml standard cans in matt silver, white and black">
+        <figcaption id="show-cap" aria-live="polite">330 ml standard</figcaption>
+        <div class="dots" id="show-dots" role="group" aria-label="Choose photo"></div>
+      </figure>
     </div>
   </section>
 
@@ -445,23 +458,13 @@ footer nav{display:flex;gap:20px}
   const fmt=n=>n.toLocaleString(T.loc);
   document.getElementById("cans-rows").innerHTML=cans.map(c=>`<tr><td class="fmt">${c[0]}${c[2]?`<span class="tag">${c[2]}</span>`:""}</td><td><span class="chip"><i class="c-${chip[c[1]]}"></i>${T[c[1]]}</span></td><td class="num">${c[3]}</td><td class="num">${fmt(c[4])}</td><td class="num">${c[5]}</td><td class="num">${fmt(c[6])}</td><td class="num">${c[7]}</td></tr>`).join("");
 
-  // Can line-up, roughly to scale (height, diameter in mm)
-  const svg=document.getElementById("lineup"), NS="http://www.w3.org/2000/svg";
-  const line=[["200 slim",110,53,0],["250 slim",134,53,0],["330 sleek",146,58,0],["330",115,66,0],["440",147,66,0],["500",168,66,0]];
-  const k=(520-28-5*12)/line.reduce((s,c)=>s+c[2],0), base=262; let x=14;
-  const defs=document.createElementNS(NS,"defs");
-  defs.innerHTML=`<linearGradient id="alu" x1="0" x2="1"><stop offset="0" stop-color="var(--alu-3)"/><stop offset=".22" stop-color="var(--alu-1)"/><stop offset=".5" stop-color="var(--alu-2)"/><stop offset=".78" stop-color="var(--alu-1)"/><stop offset="1" stop-color="var(--alu-3)"/></linearGradient><linearGradient id="matt" x1="0" x2="1"><stop offset="0" stop-color="var(--matt-2)"/><stop offset=".35" stop-color="var(--matt-1)"/><stop offset="1" stop-color="var(--matt-2)"/></linearGradient>`;
-  svg.appendChild(defs);
-  const gap=(520-28-line.reduce((s,c)=>s+c[2]*k,0))/(line.length-1);
-  line.forEach(([label,h,d,dark])=>{
-    const w=d*k, H=h*k, top=base-H, neck=Math.min(9,w*.12), nh=w*.16;
-    const p=`M${x+neck},${top} L${x+w-neck},${top} L${x+w},${top+nh} L${x+w},${base-6} Q${x+w},${base} ${x+w-6},${base} L${x+6},${base} Q${x},${base} ${x},${base-6} L${x},${top+nh} Z`;
-    const path=document.createElementNS(NS,"path"); path.setAttribute("d",p); path.setAttribute("fill",dark?"url(#matt)":"url(#alu)"); svg.appendChild(path);
-    const rim=document.createElementNS(NS,"rect"); rim.setAttribute("x",x+neck-1); rim.setAttribute("y",top-3); rim.setAttribute("width",w-2*neck+2); rim.setAttribute("height",4); rim.setAttribute("rx",1.5); rim.setAttribute("fill","var(--alu-2)"); svg.appendChild(rim);
-    const t=document.createElementNS(NS,"text"); t.setAttribute("x",x+w/2); t.setAttribute("y",base+24); t.setAttribute("text-anchor","middle"); t.textContent=label; svg.appendChild(t);
-    x+=w+gap;
-  });
-  const fl=document.createElementNS(NS,"line"); fl.setAttribute("x1",0);fl.setAttribute("x2",520);fl.setAttribute("y1",base+.5);fl.setAttribute("y2",base+.5);fl.setAttribute("stroke","var(--band-line)"); svg.appendChild(fl);
+  // Hero photos: cross-fade every 4.5 s, dots to pick; no autoplay with reduced motion
+  const shots=[...document.querySelectorAll("#show img")], cap=document.getElementById("show-cap"), dots=document.getElementById("show-dots");
+  let cur=0, timer=null;
+  const go=i=>{shots[cur].classList.remove("on");dots.children[cur].removeAttribute("aria-current");cur=(i+shots.length)%shots.length;shots[cur].classList.add("on");dots.children[cur].setAttribute("aria-current","true");cap.textContent=shots[cur].dataset.cap};
+  shots.forEach((im,i)=>{const b=document.createElement("button");b.type="button";b.setAttribute("aria-label",im.dataset.cap);if(!i)b.setAttribute("aria-current","true");b.addEventListener("click",()=>{go(i);start()});dots.appendChild(b)});
+  const start=()=>{clearInterval(timer);if(!matchMedia("(prefers-reduced-motion: reduce)").matches)timer=setInterval(()=>go(cur+1),4500)};
+  start();
 
   // Copy buttons
   document.querySelectorAll(".copy").forEach(b=>b.addEventListener("click",()=>{

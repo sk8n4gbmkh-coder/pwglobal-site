@@ -45,6 +45,14 @@ if not errors:
         for o in others:
             check(f'hreflang="{o}"' in h, f"{PAGES[lang]}: no link to {o} version")
         sections[lang] = re.findall(r'<section[^>]*id="([^"]+)"', h)
+        # Gate 5b: every local image exists in dist/ (absolute /img/... paths, UA/ET live in subfolders)
+        for src in re.findall(r'<img[^>]+src="([^"]+)"', h):
+            if not src.startswith("http"):
+                check(src.startswith("/"), f"{PAGES[lang]}: image {src} must use an absolute path")
+                check(os.path.exists(os.path.join(DIST, src.lstrip("/"))), f"{PAGES[lang]}: image {src} missing in dist/")
+        # Gate 5c (negative): old SVG line-up gone, hero has 3 photos
+        check('id="lineup"' not in h, f"{PAGES[lang]}: old SVG line-up still present")
+        check(len(re.findall(r'<img[^>]+data-cap=', h)) == 3, f"{PAGES[lang]}: hero should have 3 photos")
 
     # Gate 6: all languages have the same sections in the same order
     if "en" in sections:
