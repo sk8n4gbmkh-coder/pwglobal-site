@@ -1,6 +1,6 @@
 # 001 — Zdjęcia puszek w hero zamiast rysunku
 
-Status: zamknięta (czeka na publikację)  ·  Data: 2026-11-22
+Status: wdrożona 2026-11-22  ·  Data: 2026-11-22
 
 ## 1. TL;DR
 W nagłówku strony (hero) rysunek SVG z sylwetkami 6 formatów puszek zastępujemy pokazem 3 zdjęć (250 ml slim, 330 ml standard, 500 ml standard), zmieniających się automatycznie. Cel: więcej dynamiki. Potwierdzenie: zdjęcia widoczne i przełączają się w EN, UA i ET, test `check_site.py` przechodzi.

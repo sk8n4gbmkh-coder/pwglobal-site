@@ -34,7 +34,7 @@ Projekt prowadzony wg metodyki Rondo / Context Driven Development (workwithrondo
 | Nr | Tytuł | Status |
 |----|-------|--------|
 | [000](specs/000-szablon.md) | Szablon specyfikacji | szablon |
-| [001](specs/001-zdjecia-puszek-w-hero.md) | Zdjęcia puszek w hero zamiast rysunku | zamknięta, czeka na publikację |
+| [001](specs/001-zdjecia-puszek-w-hero.md) | Zdjęcia puszek w hero zamiast rysunku | wdrożona 2026-11-22 |
 
 ## Historia
 
