@@ -1,6 +1,6 @@
 # 002 — Pełna lista kolorów w tabeli puszek z magazynu
 
-Status: zamknięta (czeka na publikację)  ·  Data: 2026-11-22
+Status: wdrożona 2026-11-22  ·  Data: 2026-11-22
 
 ## 1. TL;DR
 Tabela „Formats in our warehouse” dostaje wszystkie dostępne kolory wg listy od właściciela (panel Asaszi / Bagpak, 22.11.2026): 17 pozycji → 15 wierszy (500 ml silver i black matt z dwóch źródeł scalone). Potwierdzenie: tabela w EN/UA/ET ma 15 wierszy, test przechodzi.

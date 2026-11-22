@@ -35,7 +35,7 @@ Projekt prowadzony wg metodyki Rondo / Context Driven Development (workwithrondo
 |----|-------|--------|
 | [000](specs/000-szablon.md) | Szablon specyfikacji | szablon |
 | [001](specs/001-zdjecia-puszek-w-hero.md) | Zdjęcia puszek w hero zamiast rysunku | wdrożona 2026-11-22 |
-| [002](specs/002-kolory-w-tabeli-stocku.md) | Pełna lista kolorów w tabeli stocku | zamknięta, czeka na publikację |
+| [002](specs/002-kolory-w-tabeli-stocku.md) | Pełna lista kolorów w tabeli stocku | wdrożona 2026-11-22 |
 
 ## Historia
 
