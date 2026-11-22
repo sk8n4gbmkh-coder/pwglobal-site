@@ -10,7 +10,7 @@ Tabela miała 10 wierszy: 200/250 slim tylko silver, 330 standard silver i „bl
 
 ## 3. Cel
 - **Cele:** wiersze: 200 slim silver/black matt; 250 slim silver/black matt; 330 sleek silver/black matt/white matt; 330 standard silver/black matt/white matt; 440 silver/black matt; 500 silver/black matt/white matt.
-- **Poza zakresem:** zmiana danych paletowych (te z 30.10 zostają), zmiana zdjęć, wieczka.
+- **Poza zakresem:** zmiana zdjęć, wieczka, indeksy Bagpak.
 - **Kryteria sukcesu:** 15 wierszy w każdym języku, nazwy kolorów przetłumaczone, brak „Black/white matt” i gołego „Black”.
 
 ## 4. Inwentarz artefaktów
@@ -37,4 +37,5 @@ Klient widzi pełną ofertę kolorów; zdjęcia i tabela są spójne (poza 250 m
 
 ## 9. Informacje dodatkowe
 - Otwarte: zdjęcie 250 ml slim w hero pokazuje białą puszkę, której nie ma w ofercie (250 ml tylko silver i black matt).
-- 500 ml: w katalogu dwie wysokości palety (Bagpak 2338, Ardagh 2174); na stronie zostaje dotychczasowe 2260 — do potwierdzenia przez właściciela.
+- Dane palet: decyzja właściciela 22.11.2026 — wymiary wg tabeli na asaszi.pl (200 slim 1100 × 1200 × 2060; 250 slim 550/warstwę, 9 350/paletę; 500 ml 2174 mm). Kolejność wymiarów zostaje jak na stronie PW (krótszy bok pierwszy). Lid 330 sleek zostaje „200 / 202”.
+- Indeksy Bagpak (np. SM/20-BLANK0002) nie są pokazywane na stronie — decyzja właściciela.
